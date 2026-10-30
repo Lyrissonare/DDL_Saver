@@ -1,0 +1,88 @@
+<Application x:Class="DDLSaver.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- ============ WPF-UI（Fluent 2）主题与控件样式 ============ -->
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemesDictionary Theme="Light" />
+                <ui:ControlsDictionary />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ============ 语义画刷（浅色初始值；ThemeService 按 Fluent 令牌显式重建） ============ -->
+            <SolidColorBrush x:Key="AppBgBrush" Color="#FFFAFAFA" />
+            <SolidColorBrush x:Key="CardBgBrush" Color="#B3FFFFFF" />
+            <SolidColorBrush x:Key="ToolbarBgBrush" Color="#80FFFFFF" />
+            <SolidColorBrush x:Key="BorderBrush" Color="#0F000000" />
+            <SolidColorBrush x:Key="TextPrimaryBrush" Color="#E4000000" />
+            <SolidColorBrush x:Key="TextSecondaryBrush" Color="#9E000000" />
+            <SolidColorBrush x:Key="TextMutedBrush" Color="#72000000" />
+            <SolidColorBrush x:Key="InputBgBrush" Color="#B3FFFFFF" />
+            <SolidColorBrush x:Key="InputTextBrush" Color="#E4000000" />
+            <SolidColorBrush x:Key="InputBorderBrush" Color="#0F000000" />
+            <SolidColorBrush x:Key="FloatCardBrush" Color="#B3FFFFFF" />
+            <SolidColorBrush x:Key="FloatCardBorderBrush" Color="#0F000000" />
+
+            <!-- 紧急度（启动时由 ThemeService 按明暗主题覆写） -->
+            <SolidColorBrush x:Key="UrgencyDoneBrush" Color="#FF9E9E9E" />
+            <SolidColorBrush x:Key="UrgencySafeBrush" Color="#FF2E7D32" />
+            <SolidColorBrush x:Key="UrgencyMediumBrush" Color="#FFB8860B" />
+            <SolidColorBrush x:Key="UrgencyUrgentBrush" Color="#FFD84315" />
+            <SolidColorBrush x:Key="UrgencyCriticalBrush" Color="#FFD32F2F" />
+            <SolidColorBrush x:Key="UrgencyOverdueBrush" Color="#FFB71C1C" />
+            <SolidColorBrush x:Key="BadgeTextBrush" Color="#FFFFFFFF" />
+
+            <!-- 控件交互态画刷（供代码构建的浮窗/通知使用） -->
+            <SolidColorBrush x:Key="HoverBgBrush" Color="#0F000000" />
+            <SolidColorBrush x:Key="PressedBgBrush" Color="#0B000000" />
+            <SolidColorBrush x:Key="ListHoverBrush" Color="#0A000000" />
+            <SolidColorBrush x:Key="ListSelectedBrush" Color="#0F000000" />
+            <SolidColorBrush x:Key="SliderTrackBrush" Color="#72000000" />
+            <SolidColorBrush x:Key="SliderThumbBrush" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="ScrollThumbBrush" Color="#72000000" />
+
+            <!-- ============ 应用内通用样式 ============ -->
+            <Style TargetType="GroupBox">
+                <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                <Setter Property="Padding" Value="14,12" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GroupBox">
+                            <StackPanel UseLayoutRounding="True">
+                                <TextBlock Text="{TemplateBinding Header}"
+                                           FontSize="12" FontWeight="SemiBold"
+                                           Foreground="{DynamicResource TextSecondaryBrush}"
+                                           Margin="2,0,0,6" />
+                                <Border Background="{DynamicResource CardBgBrush}"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="8"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="True">
+                                    <ContentPresenter />
+                                </Border>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SectionHeader" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                <Setter Property="Margin" Value="0,16,0,6" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12.5" />
+                <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0,0,10,0" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
