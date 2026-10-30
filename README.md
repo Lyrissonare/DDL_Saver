@@ -2,6 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/v/release/Lyrissonare/DDL_Saver?label=release)](https://github.com/Lyrissonare/DDL_Saver/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![IIIA-4](https://img.shields.io/badge/IIIA-4-9370DB)](https://github.com/ErSanSan233/IIIA)
 
 一款长期驻留 Windows 桌面的**极简 DDL（截止日期）提醒工具**：常驻浮窗随时看见「距离学习通第 3 章还有 3 天」，到点弹系统通知，双击浮窗即管理任务。
 
@@ -123,6 +124,7 @@ dotnet publish DDLSaver\DDLSaver.csproj -c Release -r win-x64 --self-contained `
 - 未打包应用的 Toast AUMID：启动时在开始菜单创建 `DDL拯救器.lnk`（`System.AppUserModel.ID = exe 路径（正斜杠）`，与 CommunityToolkit 运行时计算的 AUMID 一致），并注册 HKCU COM 激活器；点击 Toast 时进程内 `OnActivated` 直接收到参数，进程未运行时由系统以 `-ToastActivated` 拉起。
 - 单实例：命名 Mutex + 命名管道；第二实例唤醒主实例（显示主窗口/定位任务）。
 - 渲染：默认使用软件渲染（`RenderMode.SoftwareOnly`），确保虚拟机/远程桌面等环境下 WPF 窗口内容 100% 可见（本应用界面简单，无性能代价）。
+- **本项目的AI含量较高**，存在部分代码未经审查。
 
 ## FAQ
 
